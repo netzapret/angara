@@ -8,12 +8,9 @@
 
 <!-- ============================================================
   КУРОРТ АНГАРА — ЛЕНДИНГ ДЛЯ СЕМЕЙ С ДЕТЬМИ ДОШКОЛЬНОГО ВОЗРАСТА
-  ------------------------------------------------------------
-  КАК ДОБАВИТЬ СВОИ ФОТО:
-  Найдите блоки вида <div class="ph"> ... </div> и замените их на:
-     <img src="images/ваше-фото.jpg" alt="Описание" class="img-fill">
-  Подписи внутри блоков подсказывают, какой снимок туда лучше всего
-  поставить. Класс .img-fill уже настроен на растягивание по блоку.
+  Фотографии подключены из папки images/ (hero.png, alley.png,
+  playground.png, playroom.png, pool.png, rent.png, salt.png).
+  Чтобы заменить фото — просто положите файл с тем же именем.
 ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +47,11 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.4vw,46px);lin
 h2 em{font-style:italic;color:var(--amber-deep)}
 .lead{font-size:18px;color:var(--muted);max-width:640px}
 .img-fill{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Фото внутри блоков-заглушек: убираем рамку и растягиваем снимок */
+.ph.has-img{border:none;background:none}
+.ph.has-img::before{display:none}
+.ph.has-img > img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
 
 /* Появление при скролле */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,.8,.3,1)}
@@ -103,7 +105,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between}
 .stat span{color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.5;display:block;margin-top:6px}
 @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr);gap:28px 16px}}
 
-/* ---------- ЗАГОЛОВОК-ФОТО ---------- */
+/* ---------- БЛОКИ ФОТО ---------- */
 .ph{background:linear-gradient(135deg,#e8e0cf,#efe9db);border:1.5px dashed rgba(169,128,63,.55);
   border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:12px;color:var(--amber-deep);position:relative;overflow:hidden;transition:transform .5s ease,box-shadow .5s ease}
@@ -255,10 +257,9 @@ footer.site a:hover{color:var(--amber)}
       <div class="stat"><b data-count="10">0</b><span>километров от аэропорта Иркутска</span></div>
     </div>
 
-    <!-- ФОТО 1: замените блок ниже на главный снимок курорта (корпуса в соснах, аллея) -->
-    <div class="ph ph-hero reveal">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Фото: главный корпус курорта среди сосен Кайской рощи</span>
+    <!-- ФОТО 1: главный снимок курорта -->
+    <div class="ph ph-hero reveal has-img">
+      <img src="images/hero.png" alt="Главный корпус курорта «Ангара» среди сосен Кайской рощи">
     </div>
   </div>
 </header>
@@ -285,10 +286,9 @@ footer.site a:hover{color:var(--amber)}
         </div>
       </div>
     </div>
-    <!-- ФОТО 2: снимок аллеи / прогулки по роще -->
-    <div class="ph ph-wide reveal d1">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Фото: прогулочная аллея в Кайской роще</span>
+    <!-- ФОТО 2: аллея в Кайской роще -->
+    <div class="ph ph-wide reveal d1 has-img">
+      <img src="images/alley.png" alt="Прогулочная аллея в Кайской роще">
     </div>
   </div>
 </section>
@@ -331,25 +331,21 @@ footer.site a:hover{color:var(--amber)}
     </div>
 
     <div class="gallery">
-      <!-- ФОТО 3: детская площадка -->
-      <div class="ph reveal d1">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span>Фото: детская игровая площадка с мягким покрытием</span>
+      <!-- ФОТО 3: детская площадка (большой блок) -->
+      <div class="ph reveal d1 has-img">
+        <img src="images/playground.png" alt="Детская игровая площадка с мягким покрытием">
       </div>
       <!-- ФОТО 4: игровая комната -->
-      <div class="ph ph-sq reveal d2">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span>Фото: игровая комната в корпусе</span>
+      <div class="ph ph-sq reveal d2 has-img">
+        <img src="images/playroom.png" alt="Детская игровая комната в корпусе">
       </div>
       <!-- ФОТО 5: бассейн -->
-      <div class="ph ph-sq reveal d2">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span>Фото: бассейн с очищенной водой</span>
+      <div class="ph ph-sq reveal d2 has-img">
+        <img src="images/pool.png" alt="Бассейн с очищенной водой">
       </div>
       <!-- ФОТО 6: прокат -->
-      <div class="ph ph-sq reveal d3">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span>Фото: велосипеды и педальные машинки напрокат</span>
+      <div class="ph ph-sq reveal d3 has-img">
+        <img src="images/rent.png" alt="Прокат велосипедов и педальных машинок">
       </div>
     </div>
   </div>
@@ -404,10 +400,9 @@ footer.site a:hover{color:var(--amber)}
       <div class="treat reveal d3"><span class="dot"></span><div><b>ЖКТ и сердце</b><p>Гастроэнтерология и кардиология под наблюдением специалистов.</p></div></div>
       <div class="treat reveal d3"><span class="dot"></span><div><b>Соляная комната и ванны</b><p>Минеральные, грязевые и сухие ванны, гидромассаж — дети, судя по отзывам, в восторге.</p></div></div>
     </div>
-    <!-- ФОТО 7: процедуры / соляная комната -->
-    <div class="ph ph-wide reveal d1" style="margin-top:54px">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Фото: соляная комната или детские процедуры</span>
+    <!-- ФОТО 7: соляная комната / процедуры -->
+    <div class="ph ph-wide reveal d1 has-img" style="margin-top:54px">
+      <img src="images/salt.png" alt="Соляная комната для детских оздоровительных процедур">
     </div>
   </div>
 </section>
@@ -526,7 +521,6 @@ const io=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.classList.add('visible');
-      // запуск полос рейтинга
       e.target.querySelectorAll('.bar-fill').forEach(b=>{
         b.style.width=b.dataset.w+'%';
       });
@@ -536,7 +530,7 @@ const io=new IntersectionObserver((entries)=>{
 },{threshold:.18});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// полоски внутри секции отзывов наблюдаем и на уровне секции
+// полоски рейтинга в секции отзывов
 const rev=document.querySelector('#reviews');
 if(rev){
   new IntersectionObserver((es,o)=>{
